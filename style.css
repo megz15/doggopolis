@@ -1,0 +1,19 @@
+* {
+    font-family: Roboto, sans-serif;
+    margin: 0px;
+}
+
+#header {
+    background-color: #1f2937;
+    padding: 20px 200px 100px 200px;
+    color: #f9faf8;
+}
+
+#top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-links {
+    display: flex;
+}
