@@ -1,12 +1,21 @@
 * {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0px;
 }
 
 #header {
     background-color: #1f2937;
-    padding: 20px 200px 100px 200px;
-    color: #f9faf8;
+    padding: 20px 150px 20px 150px;
+}
+
+#section-dogs {
+    padding: 20px 150px 20px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #top-row {
@@ -15,5 +24,99 @@
 }
 
 .header-links {
+    width: 400px;
     display: flex;
+    justify-content: space-between;
+    color: #e5e7eb;
+    font-size: 18px;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: #f9faf8
+}
+
+.header-main-text {
+    font-size: 48px;
+    font-weight: 700;
+    color: #f9faf8;
+}
+
+.header-sub-text {
+    color: #e5e7eb;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 400px;
+}
+
+.dogs-main-text {
+    font-size: 36px;
+    font-weight: 900;
+    color: #1f2937;
+}
+
+.dogs-sub-text {
+    color: #1f2937;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 400px;
+}
+
+#header-content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    background-color: #3882f6;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+
+.button:hover {
+    background-color: #70a7ff;
+}
+
+.button:active{
+    background-color: #1150b6;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    background-color: rgb(255, 244, 253);
+    /* box-shadow: 5px 5px 5px 5px rgb(170, 166, 169); */
+    filter: drop-shadow(8px 8px 10px rgba(0,0,0,0.5));
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.card-image {
+    border-radius: 10px;
+}
+
+.card-caption {
+    font-weight: 300;
 }
