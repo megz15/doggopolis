@@ -6,34 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script type="module">
+
+        function getDogFact() {
+            fetch('https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1').then(
+                response => {if (response.ok) return response.json();}
+            ).then(
+                data => {
+                    var fact = data['facts'].toString();
+                    document.getElementById('fact').innerHTML = fact.charAt(0).toLowerCase() + fact.substring(1);
+                }
+            );
+        }
+    
+        getDogFact();
+    
+        var dogs = [
+            ['Catahoula Leopard Dog', 'https://img.dog-learn.com/dog-breeds/catahoula-leopard-dog/catahoula-leopard-puppy-i4.jpg'],
+            ['Nova Scotia Duck Tolling Retriever', 'https://thumbs.dreamstime.com/b/dog-nova-scotia-duck-tolling-retriever-walking-summer-park-sitting-tree-background-white-flowers-orchard-72212435.jpg'],
+            ['Cardigan Welsh Corgi', 'https://2.bp.blogspot.com/-8_NhlAK01Kc/WqKP3rXCgiI/AAAAAAAAEGU/mUifkCj2hpUqZhCwMVIDRjcyMeszA3CUACEwYBhgL/s0/pembroke-welsh-corgi.jpg'],
+            ['Samoyed', 'https://i.pinimg.com/originals/b1/a7/56/b1a756a4f6646b69a7aec82319bd173f.jpg'],
+            ['Shiba Inu', 'https://justsomething.co/wp-content/uploads/2019/05/this-shiba-inu-loves-flowers-and-these-are-10-of-his-cutest-photos-10.jpg'],
+            ['English Cocker Spaniel', 'https://i.pinimg.com/originals/bd/e1/9a/bde19aafa7eb7f9aa5d66605a6cdc46a.jpg'],
+            ['Bernese Mountain Dog', 'https://i.pinimg.com/originals/44/aa/da/44aada32622aaaef55065eafc18bab17.jpg'],
+            ['Australian Shepherd', 'https://i1.pickpik.com/photos/389/844/932/flowers-dog-shepherd-puppy-preview.jpg'],
+            ['Golden Retrivers', 'https://thegoldensclub.com/wp-content/uploads/2021/01/0562490B-4638-4122-96E3-B77632ABB00E.jpeg'],
+            ['Dalmation', 'https://i.pinimg.com/originals/c5/20/98/c520983bc556ee9432257d53779b9506.jpg'],
+            ['Bulldog', 'https://i.pinimg.com/originals/fe/da/c2/fedac201e4860ac7a843b4d35a986f55.jpg']
+        ];
+    
+        for (var d in dogs) {
+            var newCard = document.createElement('div');
+            newCard.className = "card";
+            newCard.innerHTML = `
+            <img class="card-image" src="${dogs[d][1]}" alt="${dogs[d][0]}" height="200px"/>
+            <div class="card-caption">${dogs[d][0]}</div>
+            `;
+            document.getElementById('cards').appendChild(newCard);
+        }
+    
+        fetch('https://programming-quotes-api.herokuapp.com/quotes/random').then(
+            response => {if (response.ok) return response.json();}
+        ).then(
+            data => {
+                var [quote, author] = [data['en'], data['author']];
+                document.getElementById('quote').innerHTML = quote;
+                document.getElementById('author').innerHTML = '- ' + author;
+            }
+        );
+    </script>
+
     <title>Favourite Dog Breeds of Someone I Knew</title>
 </head>
+
 <body>
     <div id="header">
         <div id="top-row">
             <div class="header-logo">Header Logo</div>
-            <div></div>
             <div class="header-links">
-                <div class="header-link">header link one</div>
-                <div class="header-link">header link two</div>
-                <div class="header-link">header link three</div>
+                <a href="https://www.bing.com/visualsearch/Microsoft/WhatDog" target="_blank"><div class="header-link">Find Dog Breed</div></a>
+                <a href="https://www.wikiwand.com/en/Dog" target="_blank"><div class="header-link">Dog Wiki Article</div></a>
+                <a href="https://github.com/megz15/" target="_blank"><div class="header-link">My GitHub</div></a>
             </div>
         </div>
         
         <div id="header-content">
-            <div>
+            <div id="header-text">
                 <div class="header-main-text">Dogs are awesome</div>
                 <p class="header-sub-text">
-                    <!-- Someone I used to know loved dogs. She used to say she wanted to be a dog lady by the age of 25, whatever that meant.
-                    <br><br>I miss that person. I wish I was more mature with how I acted around her. -->
-                    Who doesn't love these domesticated descendants of the wolf? They're man's best buds, after all!
-                    <br><br>Did you know that <span id="fact"></span>
+                    <!-- Who doesn't love these domesticated descendants of the wolf? They're man's best buds, after all! -->
+                    Who doesn't love them? They're man's best buds, after all!<br><br>
+                    Did you know that <span id="fact"></span>
                 </p>
-                <a href="https://www.bing.com/visualsearch/Microsoft/WhatDog" target="blank"><div class="button">Search Dogs</div></a>
+                <div style="flex:2;"></div>
+                <div class="button" onclick="getDogFact();">Get Dog Fact</div>
             </div>
-            <div></div>
             <div>
-                <img src="https://img.freepik.com/free-photo/group-portrait-adorable-puppies_53876-64796.jpg" alt="dogs" width="600px"/>
+                <img src="https://img.freepik.com/free-photo/group-portrait-adorable-puppies_53876-64796.jpg" alt="dogs" width="558px" height="280px"/>
             </div>
         </div>
     </div>
@@ -43,40 +93,23 @@
         <div id="cards"></div>
     </div>
 
+    <div id="section-quote">
+        <div id="quote"></div>
+        <div id="author"></div>
+    </div>
+
+    <div id="section-action">
+        <div class="action-text">
+            <div class="action-main-text">Call to action! It's time!</div>
+            <div class="action-sub-text">Browse animal welfare organizations near you by clicking on the button</div>
+        </div>
+        <a href="https://www.globalgiving.org/themes/animal-welfare/"><div class="button" style="border: 2px solid white;width:100px;">Click Here</div></a>
+    </div>
+
+    <div id="footer">
+        <div class="header-sub-text" style="font-size:16px;">Copyright © megz15 2022</div>
+        <div class="header-sub-text" style="font-size:16px;">Created with &nbsp;💚&nbsp; by Meghraj Goswami</div>
+    </div>
+
 </body>
-<script>
-
-    fetch('https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1').then(
-        response => {if (response.ok) return response.json();}
-    ).then(
-        data => {
-            var fact = data['facts'];
-            document.getElementById('fact').innerHTML = fact;
-        }
-    );
-
-    var dogs = [
-        ['Catahoula Leopard Dog', 'https://img.dog-learn.com/dog-breeds/catahoula-leopard-dog/catahoula-leopard-puppy-i4.jpg'],
-        ['Nova Scotia Duck Tolling Retriever', 'https://thumbs.dreamstime.com/b/dog-nova-scotia-duck-tolling-retriever-walking-summer-park-sitting-tree-background-white-flowers-orchard-72212435.jpg'],
-        ['Cardigan Welsh Corgi', 'https://2.bp.blogspot.com/-8_NhlAK01Kc/WqKP3rXCgiI/AAAAAAAAEGU/mUifkCj2hpUqZhCwMVIDRjcyMeszA3CUACEwYBhgL/s0/pembroke-welsh-corgi.jpg'],
-        ['Samoyed', 'https://i.pinimg.com/originals/b1/a7/56/b1a756a4f6646b69a7aec82319bd173f.jpg'],
-        ['Shiba Inu', 'https://justsomething.co/wp-content/uploads/2019/05/this-shiba-inu-loves-flowers-and-these-are-10-of-his-cutest-photos-10.jpg'],
-        ['English Cocker Spaniel', 'https://i.pinimg.com/originals/bd/e1/9a/bde19aafa7eb7f9aa5d66605a6cdc46a.jpg'],
-        ['Bernese Mountain Dog', 'https://i.pinimg.com/originals/44/aa/da/44aada32622aaaef55065eafc18bab17.jpg'],
-        ['Australian Shepherd', 'https://i1.pickpik.com/photos/389/844/932/flowers-dog-shepherd-puppy-preview.jpg'],
-        ['Golden Retrivers', 'https://thegoldensclub.com/wp-content/uploads/2021/01/0562490B-4638-4122-96E3-B77632ABB00E.jpeg'],
-        ['Dalmation', 'https://i.pinimg.com/originals/c5/20/98/c520983bc556ee9432257d53779b9506.jpg'],
-        ['Bulldog', 'https://i.pinimg.com/originals/fe/da/c2/fedac201e4860ac7a843b4d35a986f55.jpg']
-    ];
-
-    for (var d in dogs) {
-        var newCard = document.createElement('div');
-        newCard.className = "card";
-        newCard.innerHTML = `
-        <img class="card-image" src="${dogs[d][1]}" alt="${dogs[d][0]}" height="200px"/>
-        <div class="card-caption">${dogs[d][0]}</div>
-        `;
-        document.getElementById('cards').appendChild(newCard);
-    }
-</script>
 </html>

@@ -6,6 +6,18 @@
 #header {
     background-color: #1f2937;
     padding: 20px 150px 20px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer {
+    background-color: #1f2937;
+    padding: 40px 150px 40px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 #section-dogs {
@@ -18,7 +30,42 @@
     margin-bottom: 30px;
 }
 
+#section-quote {
+    padding: 100px 300px 100px 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: #e5e7eb;
+}
+
+#section-action {
+    background-color: #3882f6;
+    margin: 100px 180px 100px 180px;
+    padding: 50px 100px 50px 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#quote {
+    color: #1f2937;
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+#author {
+    color: #1f2937;
+    font-size: 24px;
+    font-weight: 900;
+    align-self: flex-end;
+}
+
 #top-row {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -41,14 +88,27 @@
     font-size: 48px;
     font-weight: 700;
     color: #f9faf8;
+    margin-top: -10px;
+    padding-bottom: 10px;
 }
 
 .header-sub-text {
     color: #e5e7eb;
     font-size: 18px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 400px;
+    /* padding-top: 10px;
+    padding-bottom: 20px; */
+    /* height: 164px; */
+}
+
+.action-main-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f9faf8;
+}
+
+.action-sub-text {
+    color: #e5e7eb;
+    font-size: 18px;;
 }
 
 .dogs-main-text {
@@ -70,10 +130,25 @@
     padding-bottom: 100px;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    /* align-items: flex-end; */
+}
+
+#header-text {
+    /* background-color: red; */
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 a {
     text-decoration: none;
+}
+
+a:visited, a:link {
+    text-decoration: none;
+    color: #e5e7eb;
 }
 
 .button {
@@ -81,6 +156,7 @@ a {
     border-radius: 10px;
     padding: 10px;
     width: 150px;
+    height: 20px;
     text-align: center;
     font-weight: 700;
     color: white;
@@ -119,4 +195,8 @@ a {
 
 .card-caption {
     font-weight: 300;
+}
+
+quote {
+    color: red;
 }
