@@ -5,3 +5,5 @@ The design is based on [this template](https://cdn.statically.io/gh/TheOdinProje
 It's just a sample site.
 
 You can visit it here - http://megz15.github.io/doggopolis
+
+Images gathered from Icons8, FreePik and Google Images.
