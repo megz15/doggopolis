@@ -1,9 +1,9 @@
 function getDogFact() {
-    fetch('https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1').then(
+    fetch('https://dogapi.dog/api/v2/facts').then(
         response => {if (response.ok) return response.json();}
     ).then(
         data => {
-            var fact = data['facts'].toString();
+            var fact = data['data'][0]["attributes"]["body"].toString();
             document.getElementById('fact').innerHTML = fact.charAt(0).toLowerCase() + fact.substring(1);
         }
     );
